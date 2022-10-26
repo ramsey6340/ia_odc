@@ -1,4 +1,4 @@
-from tp1_exo2.tools import *
+from data_trans import DataTrans
 
 def main():
     try:
@@ -8,13 +8,13 @@ def main():
     except ValueError:
         print("La valeur entrée est incorrecte !")
     else:
-        D = multiple_list_generator(length_global_array=n, length_single_array=s, max_value=max_value)
+        data_tran = DataTrans()
+        D = data_tran.multiple_list_generator(length_global_array=n, length_single_array=s, max_value=max_value)
         print("D = ",D)
-        display_min(D)
-        display_max(D)
-        display_min_global(min_global(D))
-        display_max_global(max_global(D))
-        display_d_prime(d_prime(D))
+        data_tran.display_min(D)
+        data_tran.display_max(D)
+        data_tran.display_min_global(data_tran.min_global(D))
+        data_tran.display_max_global(data_tran.max_global(D))
 
 
 if __name__ == "__main__":

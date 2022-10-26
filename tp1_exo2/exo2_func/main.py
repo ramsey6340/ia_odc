@@ -1,4 +1,4 @@
-from tp1_exo2.tools import *
+from tools import *
 
 def main():
     try:
@@ -14,7 +14,6 @@ def main():
         display_max(D)
         display_min_global(min_global(D))
         display_max_global(max_global(D))
-        display_d_prime(d_prime(D))
 
 
 if __name__ == "__main__":
