@@ -3,14 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e7eb842c-f1b3-40dc-8a09-9aec43f06af2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tp1_exo1/exo1_func/calculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/tp1_exo1/exo1_func/calculator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tp1_exo1/exo1_func/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/tp1_exo1/exo1_func/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tp1_exo1/exo1_obj/calculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/tp1_exo1/exo1_obj/calculator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tp1_exo1/exo1_obj/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/tp1_exo1/exo1_obj/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tp1_exo2/exo2_func/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/tp1_exo2/exo2_func/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tp1_exo2/exo2_func/tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/tp1_exo2/exo2_func/tools.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tp1_exo2/exo2_obj/data_trans.py" beforeDir="false" afterPath="$PROJECT_DIR$/tp1_exo2/exo2_obj/data_trans.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tp1_exo2/exo2_obj/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/tp1_exo2/exo2_obj/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tp1_exo3/exo2_app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/tp1_exo3/exo2_app/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

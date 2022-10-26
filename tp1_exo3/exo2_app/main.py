@@ -1,5 +1,4 @@
 from tp1_exo2.exo2_func.tools import *
-from tp1_exo2.exo2_func.tools import multiple_list_generator
 
 
 # La fonction main

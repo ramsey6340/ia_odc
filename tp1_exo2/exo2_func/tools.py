@@ -102,6 +102,8 @@ def display_choice():
     print("4- trouver le min global et le max global")
     print("5- calculer D'")
 
+
+# la fonction qui affiche les resultats en fonction du choix fait par l'utilisateur
 def my_result(choice, length_global_array, length_single_array, max_value):
     data_trans = DataTrans()
     D = data_trans.multiple_list_generator(length_global_array=length_global_array, length_single_array=length_single_array, max_value=max_value)
