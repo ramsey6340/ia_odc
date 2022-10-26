@@ -1,5 +1,7 @@
 from tools import *
 
+
+# la fonction main qui sera appelé à l'execution du programme
 def main():
     try:
         n = int(input("Combien de liste voulez-vous dans D ? "))
@@ -16,5 +18,6 @@ def main():
         display_max_global(max_global(D))
 
 
+# permet d'appeler la fonction main si le fichier en cour d'executio est le fichier main
 if __name__ == "__main__":
     main()

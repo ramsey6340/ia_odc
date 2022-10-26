@@ -15,6 +15,6 @@ def main():
         print("La valeur de R est: ", r)
 
 
-# l'appele de la fonction main
+# permet d'appeler la fonction main si le fichier en cour d'exécution est le fichier main
 if __name__ == "__main__":
     main()

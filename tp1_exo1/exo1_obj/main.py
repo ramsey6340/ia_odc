@@ -1,7 +1,7 @@
 from calculator import Calculator
 
 
-# la fonction main
+# la fonction main qui sera appelé à l'execution du programme
 def main():
     print("=======================TP1:Exo1=======================")
     try:
@@ -17,6 +17,6 @@ def main():
         print("La valeur de R est: ", r)
 
 
-# l'appele de la fonction main
+# permet d'appeler la fonction main si le fichier en cour d'exécution est le fichier main
 if __name__ == "__main__":
     main()

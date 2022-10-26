@@ -1,21 +1,31 @@
-from tp1_exo2.tools import *
+from tp1_exo2.exo2_func.tools import *
+from tp1_exo2.exo2_func.tools import multiple_list_generator
 
+
+# La fonction main
 def main():
-    try:
-        n = int(input("Combien de liste voulez-vous dans D ? "))
-        s = int(input("Quel est la taille de chacune de ces liste ? "))
-        max_value = int(input("Quel est la valeur maximal à ne pas depasser ? "))
-    except ValueError:
-        print("La valeur entrée est incorrecte !")
-    else:
-        D = multiple_list_generator(length_global_array=n, length_single_array=s, max_value=max_value)
-        print("D = ",D)
-        display_min(D)
-        display_max(D)
-        display_min_global(min_global(D))
-        display_max_global(max_global(D))
-        display_d_prime(d_prime(D))
+    again = 'o'
+    choice = 0
+    while again == 'o':
+        display_choice()
+        try:
+            while choice < 1 or choice > 5:
+                choice = int(input("Quel operation voulez-vous faire ? "))
+            n = int(input("Combien de liste voulez-vous dans D ? "))
+            s = int(input("Quel est la taille de chacune de ces liste ? "))
+            max_value = int(input("Quel est la valeur maximal à ne pas depasser ? "))
+        except ValueError:
+            print("La valeur entrée est incorrecte !")
+        else:
+            my_result(choice=choice, length_global_array=n, length_single_array=s, max_value=max_value)
+        finally:
+            choice = 0
+            again = 'a'
+            while again not in ['o', 'n']:
+                again = str(input("Voulez-vous continuer ? "))
+                again = again.lower()
 
 
+# appele de la fonction main si le fichier courant est le fichier main
 if __name__ == "__main__":
     main()

@@ -2,12 +2,12 @@
 from math import atan
 
 
-# la fonction f(x)
+# la fonction qui calcule f(x) = x / (x ** 2 + 1)
 def f(x):
     return x / (x ** 2 + 1)
 
 
-# la fonction g(x)
+# la fonction qui calcule g(x) = atan(x)
 def g(x):
     return atan(x)
 

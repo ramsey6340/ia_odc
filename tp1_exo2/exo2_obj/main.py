@@ -1,5 +1,7 @@
 from data_trans import DataTrans
 
+
+# la fonction main
 def main():
     try:
         n = int(input("Combien de liste voulez-vous dans D ? "))
@@ -17,5 +19,6 @@ def main():
         data_tran.display_max_global(data_tran.max_global(D))
 
 
+# appele de la fonction main si le fichier courant est le fichier main
 if __name__ == "__main__":
     main()
