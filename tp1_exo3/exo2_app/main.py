@@ -21,7 +21,7 @@ def main():
             choice = 0
             again = 'a'
             while again not in ['o', 'n']:
-                again = str(input("Voulez-vous continuer ? "))
+                again = str(input("Voulez-vous continuer (o/n)? "))
                 again = again.lower()
 
 

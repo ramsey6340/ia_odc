@@ -37,24 +37,24 @@ class DataTrans:
 
     # la fonction qui affiche le minimum d'une liste simple (une liste qui ne contient que des éléments simple comme 3, 2, etc)
     def display_min(self, tab):
-        print("============Les maximum============")
+        print("============Les minimum============")
         for i in range(len(tab)):
             print("Min de ", tab[i], " est ", self.min_array(tab[i]))
 
     # la fonction qui affiche le maximum d'une liste simple (une liste qui ne contient que des éléments simple comme 3, 2, etc)
     def display_max(self, tab):
-        print("============Les minimum============")
+        print("============Les maximum============")
         for i in range(len(tab)):
             print("Max de ", tab[i], " est ", self.max_array(tab[i]))
 
     # la fonction que affiche la valeur du minimum de ma liste global (une liste qui contient d'autre liste)
     def display_min_global(self, min):
-        print("============Le minimum============")
+        print("============Le minimum global============")
         print("Min = ", min)
 
     # la fonction que affiche la valeur du maximum de ma liste global (une liste qui contient d'autre liste)
     def display_max_global(self, max):
-        print("============Le minimum============")
+        print("============Le maximum global============")
         print("Max = ", max)
 
     # la fonction qui retourne le minimum de la liste global (la liste qui contient d'autre liste)

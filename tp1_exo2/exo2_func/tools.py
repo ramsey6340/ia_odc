@@ -36,27 +36,27 @@ def multiple_list_generator(length_global_array, length_single_array, max_value)
 
 # la fonction qui affiche le minimun d'une
 def display_min(tab):
-    print("============Les maximum============")
+    print("============Les minimum============")
     for i in range(len(tab)):
         print("Min de ", tab[i], " est ", min_array(tab[i]))
 
 
 # la fonction qui affiche le maximum d'une liste simple
 def display_max(tab):
-    print("============Les minimum============")
+    print("============Les maximum============")
     for i in range(len(tab)):
         print("Max de ", tab[i], " est ", max_array(tab[i]))
 
 
 # la fonction qui affiche le minimun de notre liste global (la liste qui contient d'autre liste)
 def display_min_global(min):
-    print("============Le minimum============")
+    print("============Le minimum global============")
     print("Min = ", min)
 
 
 # la fonction qui affiche le maximum de notre liste global (la liste qui contient d'autre liste)
 def display_max_global(max):
-    print("============Le minimum============")
+    print("============Le maximum global============")
     print("Max = ", max)
 
 

@@ -14,10 +14,7 @@ def g(x):
 
 # la fonction qui determine la liste L
 def generator_list(n):
-    l = []
-    for i in range(-n, n + 1):
-        l.append(i)
-    return l
+    return [i for i in range(-n, n+1)]
 
 
 # la fonction pour calculer (f(x)-g(x))^2
@@ -27,7 +24,4 @@ def sub_f_g_sqrt(x):
 
 # la fonction pour calculer R
 def total_sum(l):
-    sum = 0
-    for i in l:
-        sum += sub_f_g_sqrt(i)
-    return sum
+    return sum([sub_f_g_sqrt(i) for i in l])
