@@ -1,8 +1,9 @@
-from data_trans import DataTrans
+from tp1_exo2.exo2_obj.data_trans import DataTrans
 
 
 # la fonction main
 def main():
+    print("=======================TP1:Exo2-Objet=======================")
     try:
         n = int(input("Combien de liste voulez-vous dans D ? "))
         s = int(input("Quel est la taille de chacune de ces liste ? "))

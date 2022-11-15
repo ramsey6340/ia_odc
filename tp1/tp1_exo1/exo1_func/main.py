@@ -1,8 +1,9 @@
-from calculator import *
+from tp1_exo1.exo1_func.calculator import *
+
 
 # la fonction main
 def main():
-    print("=======================TP1:Exo1=======================")
+    print("=======================TP1:Exo1-Fonction=======================")
     try:
         n = 0
         while n <= 0:

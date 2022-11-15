@@ -1,7 +1,8 @@
-from tools import *
+from tp1_exo4.tools import *
+
 
 def main():
-    l = []
+    print("=======================TP1:Exo4=======================")
     try:
         max_value = int(input("Quel est la valeur maximal à ne pas depasser? "))
     except ValueError:

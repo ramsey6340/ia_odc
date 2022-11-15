@@ -1,9 +1,9 @@
-from calculator import Calculator
+from tp1_exo1.exo1_obj.calculator import Calculator
 
 
 # la fonction main qui sera appelé à l'execution du programme
 def main():
-    print("=======================TP1:Exo1=======================")
+    print("=======================TP1:Exo1-Objet=======================")
     try:
         n = 0
         while n <= 0:

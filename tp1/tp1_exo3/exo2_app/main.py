@@ -3,6 +3,7 @@ from tp1_exo2.exo2_func.tools import *
 
 # La fonction main
 def main():
+    print("=======================TP1:Exo3-exo2=======================")
     again = 'o'
     choice = 0
     while again == 'o':
@@ -21,7 +22,7 @@ def main():
             choice = 0
             again = 'a'
             while again not in ['o', 'n']:
-                again = str(input("Voulez-vous continuer (o/n)? "))
+                again = str(input("Voulez-vous continuer avec l'exo3 ?(o/n) "))
                 again = again.lower()
 
 

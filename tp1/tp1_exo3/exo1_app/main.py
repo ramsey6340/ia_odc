@@ -1,7 +1,8 @@
-from tools import *
+from tp1_exo3.exo1_app.tools import *
 
 
 def main():
+    print("=======================TP1:Exo3-exo1=======================")
     n = 0
     again = 'o'
     choice = 0
@@ -22,7 +23,7 @@ def main():
             n = 0
             again = 'a'
             while again not in ['o', 'n']:
-                again = str(input("Voulez-vous continuer (o/n)? "))
+                again = str(input("Voulez-vous continuer avec l'exo3 ?(o/n) "))
                 again = again.lower()
 
 

@@ -1,8 +1,9 @@
-from tools import *
+from tp1_exo2.exo2_func.tools import *
 
 
 # la fonction main qui sera appelé à l'execution du programme
 def main():
+    print("=======================TP1:Exo2-Fonction=======================")
     try:
         n = int(input("Combien de liste voulez-vous dans D ? "))
         s = int(input("Quel est la taille de chacune de ces liste ? "))
