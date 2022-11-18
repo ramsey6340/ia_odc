@@ -1,14 +1,33 @@
 import pandas as pd
 import numpy as np
-import matplotlib as mpl
 import matplotlib.pyplot as plt
 
 
 class Elearning:
     def __init__(self, dataset_csv):
-        self.data_frame = pd.read_csv(dataset_csv, delimiter=';')
+        is_success = False
+        delimiter_list = [',', ';', '/', ':']
+        i = 0
+        while i < len(delimiter_list) and not is_success:
+            try:
+                self.data_frame = pd.read_csv(dataset_csv, delimiter=delimiter_list[i])
+            except pd.errors.ParserError:
+                i += 1
+            except FileNotFoundError:
+                print(f"Le chemin d'accès '{dataset_csv}' est introuvable !")
+                exit()
+            else:
+                is_success = True
+        if not is_success:
+            print("Erreur: Le data frame ne peut pas etre ouvert !")
+        else:
+            print("Succes: Le data frame a bien été lu !")
 
     # ==========================Parti 1==========================
+
+    def display_df_global(self):
+        return self.data_frame
+
     def get_effectif_learners(self):
         # calcule de l'effectif des apprenants pour chaque module,
         #  en faisant attention parce que les apprenants peuvent se répeter
@@ -23,7 +42,7 @@ class Elearning:
         # determination du score maximal pour chaque module
         return self.data_frame.groupby("object_id").score.max()
 
-    def get_score_min_by_module(self):
+    def get_score_min_by_module_in_global_df(self):
         # calcule du score minimal pour chaque module
         return self.data_frame.groupby("object_id").score.min()
 
@@ -31,6 +50,11 @@ class Elearning:
         # calcule du nombre d'apprenant pour chaque module dont le score est >=50
         # taux de ressite = (nombre_eleve_plus_de_50 x 100) / effective_apprenant
         return self.data_frame.loc[self.data_frame.score >= 50].groupby("object_id").actor.nunique()
+
+    def get_success_rate(self):
+        success_rate_column = (self.get_number_of_learners_admitted() * 100) / self.get_effectif_learners()
+        success_rate_column.replace(np.nan, 0, inplace=True)
+        return success_rate_column
 
     def get_df_groupby_module(self):
         # creation du data frame regroupé par module et contenant les champs suivant:
@@ -43,8 +67,8 @@ class Elearning:
         my_dict = {"effectif": self.get_effectif_learners(),
                    "nombre_total_session": self.get_total_number_of_session(),
                    "score_max": self.get_score_max_by_module_in_global_df(),
-                   "score_min": self.get_score_min_by_module(),
-                   "taux_de_reussite": (self.get_number_of_learners_admitted() * 100) / self.get_effectif_learners()
+                   "score_min": self.get_score_min_by_module_in_global_df(),
+                   "taux_de_reussite": self.get_success_rate()
                    }
         df_tp2 = pd.DataFrame(my_dict)
         # df_tp2.dropna(axis=0, inplace = True) # supprime les NaN dans le data frame
@@ -91,17 +115,17 @@ class Elearning:
             ["actor", "session_uuid", "object_id", "score", "temps"]
         ]
 
-    def get_total_session_by_learner_of_module(self, data_frame):
-        # calcul du nombre total de session pour le top module regrouper par apprenant
-        return data_frame.groupby("actor").session_uuid.nunique()
+    def get_total_session_by_learner_of_module(self, data_frame_of_one_module):
+        # calcul du nombre total de session pour un module precis regrouper par apprenant
+        return data_frame_of_one_module.groupby("actor").session_uuid.nunique()
 
-    def get_total_time_by_learner_of_module(self, data_frame):
-        # calcul du nombre total de temps pour le top module régroupé par apprenant
-        return data_frame.groupby("actor").temps.sum()
+    def get_total_time_by_learner_of_module(self, data_frame_of_one_module):
+        # calcul du nombre total de temps pour un module precis régroupé par apprenant
+        return data_frame_of_one_module.groupby("actor").temps.sum()
 
-    def get_score_max_by_learner_of_module(self, data_frame):
-        # calcul du score maximal pour le top modul régroupé par apprenant
-        return data_frame.groupby("actor").score.max()
+    def get_score_max_by_learner_of_module(self, data_frame_of_one_module):
+        # calcul du score maximal pour un module precis régroupé par apprenant
+        return data_frame_of_one_module.groupby("actor").score.max()
 
     @classmethod
     def get_a_bit(cls, value):
@@ -118,16 +142,20 @@ class Elearning:
 
     def get_colonne_pour_admission(self, data_frame):
         # calcul de la colonne pour le résultat final (1 si score>= et 0 sinon)
-        return self.get_score_max_by_learner_of_module(data_frame=data_frame).map(
+        return self.get_score_max_by_learner_of_module(data_frame_of_one_module=data_frame).map(
             lambda x: Elearning.get_a_bit(x))  # la fonction joue sur les Series
 
-    def get_final_top_module_df(self, data_frame):
-        # creation du data frame final à partir des données precedemment calculer
+    def get_summarize_data_of_each_learners(self, data_frame_of_one_module):
+        # creation du data frame contenant les données résumer de chaque apprenant
         top_module_dict = {
-            "nbre_total_session": self.get_total_session_by_learner_of_module(data_frame=data_frame),
-            "nbre_total_temps": self.get_total_time_by_learner_of_module(data_frame=data_frame),
-            "score": self.get_score_max_by_learner_of_module(data_frame=data_frame),
-            "resultat": self.get_colonne_pour_admission(data_frame=data_frame)
+            "nbre_total_session": self.get_total_session_by_learner_of_module(
+                data_frame_of_one_module=data_frame_of_one_module
+            ),
+            "nbre_total_temps": self.get_total_time_by_learner_of_module(
+                data_frame_of_one_module=data_frame_of_one_module
+            ),
+            "score": self.get_score_max_by_learner_of_module(data_frame_of_one_module=data_frame_of_one_module),
+            "resultat": self.get_colonne_pour_admission(data_frame=data_frame_of_one_module)
         }
         return pd.DataFrame(top_module_dict)
 
@@ -216,7 +244,7 @@ class Elearning:
         df_final["rang"] = [i + 1 for i in range(len(df_final))]
         return df_final
 
-    def curve_of_10_module(self):
+    def display_curve_of_10_module(self):
         # methode pour dessiner les courbes des 10 top module
         fig, ax = plt.subplots()
         for i in range(10):
@@ -231,7 +259,7 @@ class Elearning:
         ax.legend()
         plt.show()
 
-    def diagram_bar(self):
+    def display_diagram_bar(self):
         # methode pour dessiner le diagramme en batton
         # le positionnement par rapport à l'axe des abscisses
         x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
