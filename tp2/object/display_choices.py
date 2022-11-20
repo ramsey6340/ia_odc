@@ -1,9 +1,11 @@
 NUM_CHOICES = range(1, 19)
+NUM_CHOICES_COLUMN = range(1, 13)
 
 
+# fonction pour afficher les differentes operations possible sur le data frame original
 def display_choices():
     print("1-Afficher le data frame original")
-    print("2-Afficher une ou des colonnes spécifiques")
+    print("2-Afficher une colonne spécifiques du data frame original")
     print("3-Afficher l'effectif des apprenants pour chaque module")
     print("4-Afficher le nombre total de session pour chaque module")
     print("5-Afficher le score maximal obtenue dans chaque module")
@@ -31,3 +33,39 @@ def display_choices():
             choix = 0
         else:
             return choix
+
+
+# fonction pour afficher les differentes operation possible
+# lorsque l'utilisateur choisie l'option 2 dans la fonction "display_choices"
+def display_choices_num_column(length_df):
+    print("1-La colonne \"id\"")
+    print("2-La colonne \"actor\"")
+    print("3-La colonne \"session_uuid\"")
+    print("4-La colonne \"object_id\"")
+    print("5-La colonne \"activity_type\"")
+    print("6-La colonne \"progression\"")
+    print("7-La colonne \"score\"")
+    print("8-La colonne \"temps\"")
+    print("9-La colonne \"total_ecrans\"")
+    print("10-La colonne \"created\"")
+    print("11-La colonne \"modified\"")
+    print("12-La colonne \"learning_object\"")
+    print("13-La colonne \"processed\"")
+
+    choix = 0
+    nb_row = 0
+    is_success = False
+    while not is_success:
+        try:
+            while choix not in NUM_CHOICES_COLUMN:
+                choix = int(input("Quel est votre choix de colonne ? "))
+            while nb_row < 1 or nb_row > length_df:
+                nb_row = int(input(f"Combien de ligne voulez-vous afficher ?(?/{length_df}) "))
+        except ValueError:
+            print("La valeur saisie est incorrect")
+            # choix = 0
+            # nb_row = 0
+        else:
+            is_success = True
+
+    return choix, nb_row

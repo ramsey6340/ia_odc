@@ -28,6 +28,34 @@ class Elearning:
     def display_df_global(self):
         return self.data_frame
 
+    def display_any_column(self, nb_col, nb_row):
+        if nb_col == 1:
+            print(self.data_frame["id"].head(nb_row))
+        elif nb_col == 2:
+            print(self.data_frame["actor"].head(nb_row))
+        elif nb_col == 3:
+            print(self.data_frame["session_uuid"].head(nb_row))
+        elif nb_col == 4:
+            print(self.data_frame["object_id"].head(nb_row))
+        elif nb_col == 5:
+            print(self.data_frame["activity_type"].head(nb_row))
+        elif nb_col == 6:
+            print(self.data_frame["progression"].head(nb_row))
+        elif nb_col == 7:
+            print(self.data_frame["score"].head(nb_row))
+        elif nb_col == 8:
+            print(self.data_frame["temps"].head(nb_row))
+        elif nb_col == 9:
+            print(self.data_frame["total_ecrans"].head(nb_row))
+        elif nb_col == 10:
+            print(self.data_frame["created"].head(nb_row))
+        elif nb_col == 11:
+            print(self.data_frame["modified"].head(nb_row))
+        elif nb_col == 12:
+            print(self.data_frame["learning_object"].head(nb_row))
+        else:
+            print(self.data_frame["processed"].head(nb_row))
+
     def get_effectif_learners(self):
         # calcule de l'effectif des apprenants pour chaque module,
         #  en faisant attention parce que les apprenants peuvent se répeter
