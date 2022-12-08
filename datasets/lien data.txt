@@ -1,0 +1,5 @@
+twitter_friends: https://www.kaggle.com/datasets/hwassner/TwitterFriends
+top_insta_influencers_data: https://www.kaggle.com/datasets/surajjha101/top-instagram-influencers-data-cleaned
+twitter_user_dataset: https://data.world/data-society/twitter-user-data
+diabetes: https://www.kaggle.com/datasets/mathchi/diabetes-data-set
+salary: https://www.kaggle.com/code/mahmoudftolba/salary-prediction-classification/notebook
